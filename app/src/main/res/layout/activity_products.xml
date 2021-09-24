@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Products"
+    tools:ignore="DuplicateIds">
+
+    <Button
+        android:id="@+id/btnFragment1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="changeFragment"
+        android:text="@string/btnFragment1"
+        app:backgroundTint="@color/button" />
+
+    <Button
+        android:id="@+id/btnFragment2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="changeFragment"
+        android:text="@string/btnFragment2"
+        app:backgroundTint="@color/button" />
+
+    <Button
+        android:id="@+id/btnFragment3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="changeFragment"
+        android:text="@string/btnFragment3"
+        app:backgroundTint="@color/button" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/frgment1"
+        android:name="com.example.madproject.FragmentKoththu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MAD Project</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="btnFragment1">KOTHTHU</string>
+    <string name="btnFragment2">FRIED RICE</string>
+    <string name="btnFragment3">BURGER</string>
+    <string name="txtView1">Product Name</string>
+    <string name="txtView2">Product Price</string>
+    <string name="button1">UPLOAD</string>
+    <string name="txtView3">Category</string>
+    <string name="rButton1">Koththu</string>
+    <string name="rButton2">Rice</string>
+    <string name="rButton3">Burger</string>
+    <string name="btn_add">ADD</string>
+    <string name="button2E">EDIT</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="textView">See Us Via</string>
+    <string name="textView3">0412284757</string>
+    <string name="textview4">0702222222</string>
+    <string name="textView6">alarmfood@gmail.com</string>
+</resources>
