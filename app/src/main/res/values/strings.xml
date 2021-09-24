@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mad Project</string>
+    <string name="button">Edit</string>
+    <string name="submit1">Submit</string>
+    <string name="button2">Delete</string>
+    <string name="button3">Conform</string>
+    <string name="dtebutton">Date</string>
+    <string name="tmebutton">Time</string>
+    <string name="sveChnge1">Save Changes</string>
+    <string name="okbtn1">Ok</string>
+
+    <string-array name="names">
+
+        <item> 2km </item>
+        <item> 5km </item>
+        <item> 10km </item>
+    </string-array>
+</resources>
