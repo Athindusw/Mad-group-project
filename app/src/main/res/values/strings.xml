@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MAD Project</string>
+    <string name="btn_food">Food Alarm</string>
+    <string name="btn_lgin">Login/Sign Up</string>
+    <string name="btn_contact">Contact Us</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_rice">Fried Rice</string>
+    <string name="btn_kottu">Kottu</string>
+    <string name="btn_burger">Burgers</string>
+    <string name="delete">Delete</string>
+    <string name="product">Product</string>
+    <string name="qty">Qty</string>
+    <string name="price">Price</string>
+    <string name="btn_back">Back to Cart</string>
+    <string name="btn_place">Place Order</string>
+    <string name="btn_cart">Go to Cart</string>
+    <string name="btn_cartK">Go to Cart</string>
+    <string name="btn_cartB">Go to Cart</string>
+    <string name="btn_cartsubmit">Submit</string>
+    <string name="txt_od">Order Details</string>
+    <string name="txt_orderid">Order ID</string>
+    <string name="txt_subtot">Sub Total</string>
+    <string name="txt_dis">Discount</string>
+    <string name="txt_totamount">Total Amount</string>
+    <string name="rabtn_take">Take Away</string>
+    <string name="rabtn_deli">Delivery</string>
+    <string name="btn_addcart">Add to Cart</string>
+</resources>
