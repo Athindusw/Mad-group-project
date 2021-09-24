@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Backcolour"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".feedbackedit">
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="352dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/bungee"
+        android:gravity="center_horizontal"
+        android:text="FeedBack "
+        android:textColor="@color/black"
+        android:textSize="34sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:src="@drawable/fb" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userName2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="375dp"
+        android:layout_height="114dp"
+
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Great one"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/material_on_primary_disabled"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="364dp"
+        android:layout_height="31dp"
+        android:fontFamily="serif"
+        android:gravity="center_horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="2dp"
+        android:text="Rate of this app"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+
+    <RatingBar
+        android:id="@+id/rbStars"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="2dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <TextView
+        android:id="@+id/tvFeedback"
+        android:layout_width="364dp"
+        android:layout_height="31dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="2dp"
+        android:text="Very Dissatified"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="Edit Feedback"
+        android:textColor="@color/white"
+        app:backgroundTint="#ff9800" />
+</LinearLayout>
+
+
+
+
+
+
+
+
+
