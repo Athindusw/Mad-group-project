@@ -5,14 +5,14 @@
     android:id="@+id/Btn1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/newback"
+    android:background="#ffebcc"
     tools:context=".MainActivity">
 
    <androidx.appcompat.widget.Toolbar
        android:id="@+id/toolbar"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
-       android:background="#EE3E06"
+       android:background="@color/button"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.0"
        app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
        android:textColorHint="@color/dark_green"
        android:textSize="20sp"
        android:textStyle="bold"
-       app:backgroundTint="#ffffbb33"
+       app:backgroundTint="@color/button"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        tools:ignore="TouchTargetSizeCheck" />
@@ -183,7 +183,7 @@
        android:layout_marginBottom="64dp"
        android:text="@string/btn_add"
        android:textColor="@color/black"
-       app:backgroundTint="#EE3E06"
+       app:backgroundTint="@color/button"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        tools:ignore="TouchTargetSizeCheck" />

@@ -12,16 +12,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 
 public class FragmentRice extends Fragment {
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    ArrayList<RecyclerRice> dataholder;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
-    Intent intent;
+    private String mParam1;
+    private String mParam2;
+    RecyclerView recview;
+    RecyclerViewAdapter adapter;
+    public FragmentRice() {
+
+    }
+
+    public static FragmentRice newInstance(String param1, String param2) {
+        FragmentRice fragment = new FragmentRice();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+
+//    //ArrayList<RecyclerRice> dataholder;
+
+//    Intent intent;
+
 
 
     @Override
@@ -29,39 +63,20 @@ public class FragmentRice extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rice, container, false);
-        recyclerView = view.findViewById(R.id.recview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        dataholder = new ArrayList<>();
+        recview = view.findViewById(R.id.recview);
 
-        RecyclerRice ob1 = new RecyclerRice(R.drawable.r1, "mutton Rice", 200.00);
-        dataholder.add(ob1);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        RecyclerRice ob2 = new RecyclerRice(R.drawable.r2, "chicken Rice", 200.00);
-        dataholder.add(ob2);
+        FirebaseRecyclerOptions<Food> options =
+                new FirebaseRecyclerOptions.Builder<Food>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Food").orderByChild("foodCategory").equalTo("Rice"), Food.class)
+                        .build();
 
-        RecyclerRice ob3 = new RecyclerRice(R.drawable.r3, "carrot Rice", 200.00);
-        dataholder.add(ob3);
 
-        RecyclerRice ob4 = new RecyclerRice(R.drawable.r1, "mutton Rice", 200.00);
-        dataholder.add(ob4);
 
-        RecyclerRice ob5 = new RecyclerRice(R.drawable.r2, "chicken Rice", 200.00);
-        dataholder.add(ob5);
-
-        RecyclerRice ob6 = new RecyclerRice(R.drawable.r3, "carrot Rice", 200.00);
-        dataholder.add(ob6);
-
-        RecyclerRice ob7 = new RecyclerRice(R.drawable.r1, "mutton Rice", 200.00);
-        dataholder.add(ob7);
-
-        RecyclerRice ob8 = new RecyclerRice(R.drawable.r2, "chicken Rice", 200.00);
-        dataholder.add(ob8);
-
-        RecyclerRice ob9 = new RecyclerRice(R.drawable.r3, "carrot Rice", 200.00);
-        dataholder.add(ob9);
-
-        recyclerView.setAdapter(new RecyclerViewAdapter(dataholder));
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
+        adapter = new RecyclerViewAdapter(options);
+        recview.setAdapter(adapter);
 
         Button btn_add = (Button) view.findViewById(R.id.btn_add);
         btn_add.setOnClickListener(v -> {
@@ -71,6 +86,17 @@ public class FragmentRice extends Fragment {
         });
 
         return  view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+            adapter.startListening();
+    }
+
+    public void onStop(){
+        super.onStop();
+            adapter.stopListening();
     }
 
 

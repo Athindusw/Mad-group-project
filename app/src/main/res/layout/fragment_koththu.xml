@@ -4,191 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentKoththu">
+    tools:context=".FragmentKoththu"
+    android:background="#ffebcc">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/flButton1"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="171dp"
-        android:layout_marginRight="171dp"
-        android:layout_marginBottom="21dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_add_24"
-        app:backgroundTint="@color/purple_500" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp"
+        android:scrollbars="vertical" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="189dp"
-        android:layout_height="189dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:src="@drawable/koththu1" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="197dp"
-        android:layout_height="185dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginEnd="-10dp"
-        android:layout_marginRight="-10dp"
-        android:layout_marginBottom="112dp"
-        android:layout_toEndOf="@+id/imageView6"
-        android:layout_toRightOf="@+id/imageView6"
-        android:src="@drawable/koththu2" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="220dp"
-        android:layout_height="169dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="-6dp"
-        android:layout_marginLeft="-6dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:src="@drawable/koththu3" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="192dp"
-        android:layout_height="187dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginBottom="112dp"
-        android:src="@drawable/koththu4" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/floatingActionButton15"
-        android:layout_toRightOf="@+id/floatingActionButton15"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_delete_24"
-        app:backgroundTint="@android:color/holo_red_light" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView5"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_delete_24"
-        app:backgroundTint="@android:color/holo_red_light" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton13"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginBottom="48dp"
-        android:layout_toEndOf="@+id/floatingActionButton17"
-        android:layout_toRightOf="@+id/floatingActionButton17"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_delete_24"
-        app:backgroundTint="@android:color/holo_red_light" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="48dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_delete_24"
-        app:backgroundTint="@android:color/holo_red_light" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="224dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:backgroundTint="@color/green" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="218dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_toStartOf="@+id/floatingActionButton12"
-        android:layout_toLeftOf="@+id/floatingActionButton12"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:backgroundTint="@color/green" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginBottom="48dp"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:backgroundTint="@color/green" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="48dp"
-        android:layout_toStartOf="@+id/floatingActionButton14"
-        android:layout_toLeftOf="@+id/floatingActionButton14"
-        android:clickable="true"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:backgroundTint="@color/green" />
+        android:layout_marginBottom="0dp"
+        android:text="@string/btn_add"
+        app:backgroundTint="@color/button" />
 
 </RelativeLayout>

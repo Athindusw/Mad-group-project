@@ -1,184 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Edit"
-    android:background="@drawable/newback">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#EE3E06"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Edit Food"
-        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
-        app:titleTextColor="@color/design_default_color_on_primary" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:padding="16dp"
-        android:src="@drawable/ic_baseline_menu_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+    android:orientation="vertical"
+    android:background="#ffebcc"
+    >
 
     <TextView
-        android:id="@+id/txtView1"
-        android:layout_width="243dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/averia_serif_libre_bold_italic"
-        android:text="@string/txtView1"
-        android:textColor="@color/dark_green"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Update Food"
+        android:background="@color/button"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="#fff"/>
 
     <EditText
-        android:id="@+id/editTxt1"
-        android:layout_width="wrap_content"
+        android:id="@+id/uname"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Remix Koththu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtView1" />
-
-    <TextView
-        android:id="@+id/txtView2"
-        android:layout_width="243dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/averia_serif_libre_bold_italic"
-        android:text="@string/txtView2"
-        android:textColor="@color/dark_green"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxt1" />
-
-    <EditText
-        android:id="@+id/editTxt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/txtView2"
-        android:inputType="textPersonName"
-        android:text="Rs.450"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtView2" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="133dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="156dp"
-        android:fontFamily="@font/averia_serif_libre_bold_italic"
-        android:text="@string/button1"
-        android:textColor="@color/dark_green"
-        android:textColorHint="@color/dark_green"
+        android:layout_marginTop="10dp"
+        android:hint="Image URL"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:backgroundTint="#ffffbb33"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="216dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="168dp"
-        android:background="#F1EDD3"
-        android:fadeScrollbars="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <EditText
+        android:id="@+id/uprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Name"
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/txtView3"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/averia_serif_libre_bold_italic"
-        android:text="@string/txtView3"
-        android:textColor="@color/dark_green"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTxt2" />
+    <EditText
+        android:id="@+id/uimgurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Course"
+        android:textSize="20sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <RadioGroup
-        android:layout_width="184dp"
-        android:layout_height="147dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginLeft="216dp"
-        android:layout_marginTop="316dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <RadioButton
-            android:id="@+id/rButton1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:button="@android:drawable/radiobutton_on_background"
-            android:text="@string/rButton1"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:buttonTint="#716E6E" />
-
-        <RadioButton
-            android:id="@+id/rButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rButton2"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/rButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rButton3"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </RadioGroup>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="99dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="88dp"
-        android:text="@string/button2E"
-        app:backgroundTint="#EE3E06"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/usubmit"
+        android:backgroundTint="@color/delete"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

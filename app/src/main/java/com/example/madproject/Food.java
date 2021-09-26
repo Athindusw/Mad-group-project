@@ -1,34 +1,19 @@
 package com.example.madproject;
 
 public class Food {
-    private String foodName;
-    private Double foodPrice;
+
     private String foodCategory;
     private String foodImage;
+    private String foodName;
+    private String foodPrice;
 
     public Food() {
     }
 
-    public Food(String foodName, Double foodPrice, String foodCategory, String foodImage) {
-        this.foodName = foodName;
-        this.foodPrice = foodPrice;
+    public Food(String foodCategory, String foodImage, String foodName, String foodPrice) {
         this.foodCategory = foodCategory;
         this.foodImage = foodImage;
-    }
-
-    public String getFoodName() {
-        return foodName;
-    }
-
-    public void setFoodName(String foodName) {
         this.foodName = foodName;
-    }
-
-    public Double getFoodPrice() {
-        return foodPrice;
-    }
-
-    public void setFoodPrice(double foodPrice) {
         this.foodPrice = foodPrice;
     }
 
@@ -46,5 +31,21 @@ public class Food {
 
     public void setFoodImage(String foodImage) {
         this.foodImage = foodImage;
+    }
+
+    public String getFoodName() {
+        return foodName;
+    }
+
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
+
+    public String getFoodPrice() {
+        return foodPrice;
+    }
+
+    public void setFoodPrice(String foodPrice) {
+        this.foodPrice = foodPrice;
     }
 }
