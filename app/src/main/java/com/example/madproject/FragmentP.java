@@ -14,62 +14,62 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class FragmentP extends Fragment {
 
-    /*TextView tv1, tv2;
-    Button btn_add_cart;
-    DatabaseReference dbRef;
-    OrderDetails orderdetails1;*/
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    private String mParam1;
+    private String mParam2;
+    RecyclerView recview;
+    RecyclerViewAdapter adapter;
+    public FragmentP() {
 
-    RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
-    ArrayList<RecyclerFood> dataholder;
+    }
+
+    public static FragmentP newInstance(String param1, String param2) {
+        FragmentP fragment = new FragmentP();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_p, container, false);
-        recyclerView = view.findViewById(R.id.recview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        dataholder = new ArrayList<>();
-        RecyclerFood ob1 = new RecyclerFood(R.drawable.rice1, "Mutton Rice", 450.00);
-        dataholder.add(ob1);
-        RecyclerFood ob2 = new RecyclerFood(R.drawable.rice2, "Chicken Rice", 300.00);
-        dataholder.add(ob2);
-        RecyclerFood ob3 = new RecyclerFood(R.drawable.rice3, "Garlic Rice", 200.00);
-        dataholder.add(ob3);
-        recyclerView.setAdapter(new RecyclerViewAdapter(dataholder));
-        recyclerView.setHasFixedSize(true);
+        recview = view.findViewById(R.id.recview);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        FirebaseRecyclerOptions<Food> options =
+                new FirebaseRecyclerOptions.Builder<Food>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Food").orderByChild("foodCategory").equalTo("Rice"), Food.class)
+                        .build();
 
-        /*TextView tv1 = (TextView) view.findViewById(R.id.tv1);
-        TextView tv2 = (TextView) view.findViewById(R.id.tv2);
-
-        orderdetails1 = new OrderDetails();
-
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Order_Details");
-        btn_add_cart.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //orderdetails1.setOrderID();
-                orderdetails1.setPrice(Double.parseDouble(tv2.getText().toString().trim()));
-                //orderdetails1.setProductID();
-                orderdetails1.setQuantity(1);
-
-                dbRef.push().setValue(orderdetails1);
-
-                Toast.makeText(getActivity(), "Hi", Toast.LENGTH_SHORT).show();
-            }
-        });*/
+        adapter = new RecyclerViewAdapter(options);
+        recview.setAdapter(adapter);
 
 
-        Button btn_cart = (Button) view.findViewById(R.id.btn_cart);
+    Button btn_cart = (Button) view.findViewById(R.id.btn_cart);
 
         btn_cart.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),ProductCart.class);
@@ -80,4 +80,16 @@ public class FragmentP extends Fragment {
         return  view;
 
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    public void onStop(){
+        super.onStop();
+        adapter.stopListening();
+    }
+
+
 }
