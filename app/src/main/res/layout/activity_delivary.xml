@@ -11,7 +11,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/toolbar3"
+        android:background="#ff9800"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="Delivery" />
@@ -98,7 +98,7 @@
         android:textStyle="bold" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/edspinner"
         android:layout_width="188dp"
         android:layout_height="47dp"
         android:layout_below="@+id/Address1"
@@ -120,14 +120,14 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="38dp"
         android:text="Date"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ffd633" />
 
     <TextView
         android:id="@+id/dateTextView"
         android:layout_width="226dp"
         android:layout_height="39dp"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/edspinner"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="51dp"
@@ -147,7 +147,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="37dp"
         android:text="Time"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ffd633" />
 
     <TextView
@@ -174,7 +174,7 @@
         android:layout_marginRight="121dp"
         android:layout_marginBottom="97dp"
         android:text="@string/submit1"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ff9800" />
 
 </RelativeLayout>

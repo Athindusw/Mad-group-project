@@ -1,17 +1,18 @@
 package com.example.madproject;
 
 
-import java.sql.Time;
-import java.util.Date;
-
 public class tkAway {
 
         String name;
-        Integer mobile;
+        String mobile;
         String date;
         String time;
 
-    public tkAway(String name, Integer mobile, String date, String time) {
+    public tkAway() {
+
+    }
+
+    public tkAway(String name, String mobile, String date, String time) {
         this.name = name;
         this.mobile = mobile;
         this.date = date;
@@ -22,7 +23,7 @@ public class tkAway {
         return name;
     }
 
-    public Integer getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
@@ -32,6 +33,22 @@ public class tkAway {
 
     public String getTime() {
         return time;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
 

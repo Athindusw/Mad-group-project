@@ -15,6 +15,7 @@
     <!--        android:background="#fece2f"-->
     <!--        android:padding="10dp">-->
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="280dp"
@@ -22,13 +23,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="77dp"
-        android:layout_marginRight="77dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:fontFamily="@font/bungee"
         android:text="           Take Away Details"
         android:textSize="20sp" />
-
 
     <RelativeLayout
         android:layout_width="332dp"
@@ -73,7 +73,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="21dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="0732255668"
+            android:text="0123456789"
             android:textSize="20sp" />
 
         <TextView
@@ -87,7 +87,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="Aug 27,2021"
+            android:text="Sep 1, 2021"
             android:textSize="20sp" />
 
         <TextView
@@ -101,7 +101,7 @@
             android:layout_marginLeft="52dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/abril_fatface"
-            android:text="4:00pm"
+            android:text="10: 45  PM"
             android:textSize="20sp" />
     </RelativeLayout>
 
@@ -114,15 +114,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="99dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="182dp"
         android:background="#fece2f"
         android:text="Conform"
+        android:textColor="@color/white"
         app:backgroundTint="#ff9800" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/tDltbtn"
         android:layout_width="109dp"
         android:layout_height="wrap_content"
 

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadProject">
         <activity
+            android:name=".editTakeAway"
+            android:exported="true" />
+        <activity
             android:name=".MainHandlar"
             android:exported="true" />
         <activity

@@ -7,6 +7,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class delivary<spinner> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_delivary);
 
        // dateformat = findViewById(R.id.dateformatId);
@@ -65,18 +67,12 @@ public class delivary<spinner> extends AppCompatActivity {
         Mobile1 = findViewById(R.id.Mobile1);
         Address1 = findViewById(R.id.Address1);
         submit1 = findViewById(R.id.submit1);
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.edspinner);
         adapter = ArrayAdapter.createFromResource(this, R.array.names, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        db1 = FirebaseDatabase.getInstance().getReference().child("Delivery");
-        submit1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bsave1();
-            }
-        });
+
 
 
 
@@ -111,11 +107,20 @@ public class delivary<spinner> extends AppCompatActivity {
                 handleTimeButton();
             }
         });
+
+        db1 = FirebaseDatabase.getInstance().getReference().child("Delivery");
+        submit1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bsave1();
+            }
+        });
     }
 
     private void bsave1(){
         String Name = Name1.getText().toString();
-        Integer Mobile = Integer.parseInt(Mobile1.getText().toString());
+      //  Integer Mobile = Integer.parseInt(Mobile1.getText().toString());
+        String Mobile = Mobile1.getText().toString();
         String Address = Address1.getText().toString();
         String Distance = spinner.getSelectedItem().toString();
         String Date = dateTextView.getText().toString();

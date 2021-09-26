@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,6 +46,7 @@ public class takeAway extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_take_away);
 
         tname = findViewById(R.id.tname);
@@ -75,13 +78,7 @@ public class takeAway extends AppCompatActivity {
 //
 //            }
 //        });
-      db = FirebaseDatabase.getInstance().getReference().child("TakeAway");
-           Subbtn.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   bsave();
-               }
-           });
+
 
 
 
@@ -99,19 +96,30 @@ public class takeAway extends AppCompatActivity {
                 handleTimeButton();
             }
         });
+
+        db = FirebaseDatabase.getInstance().getReference().child("TakeAway");
+        Subbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bsave();
+            }
+        });
     }
 
 
 
     private void bsave(){
         String Name = tname.getText().toString();
-             Integer Mobile = Integer.parseInt(tmobile.getText().toString());
+             //Integer Mobile = Integer.parseInt(tmobile.getText().toString());
+        String Mobile = tmobile.getText().toString();
              String Date = dateTextView1.getText().toString();
              String Time = timeTextView1.getText().toString();
 
              tkAway tAway = new tkAway(Name, Mobile, Date, Time);
              db.push().setValue(tAway);
         Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(takeAway.this,DisplayTakeAwayDetails.class);
+        startActivity(intent);
     }
 
 

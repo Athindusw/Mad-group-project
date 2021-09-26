@@ -2,13 +2,13 @@ package com.example.madproject;
 
 public class dlvry {
     String name;
-    Integer mobile;
+    String mobile;
     String address;
     String distance;
     String date;
     String time;
 
-    public dlvry(String name, Integer mobile, String address, String distance, String date, String time) {
+    public dlvry(String name, String mobile, String address, String distance, String date, String time) {
         this.name = name;
         this.mobile = mobile;
         this.address = address;
@@ -21,7 +21,7 @@ public class dlvry {
         return name;
     }
 
-    public Integer getMobile() {
+    public String getMobile() {
         return mobile;
     }
 

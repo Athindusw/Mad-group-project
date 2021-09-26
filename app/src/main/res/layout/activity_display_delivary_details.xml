@@ -35,14 +35,14 @@
         android:layout_marginTop="111dp"
         android:layout_marginEnd="21dp"
         android:layout_marginRight="21dp"
-        android:background="#d1e0e0"
+        android:background="#ffcc80"
         android:padding="10dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="128dp">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/dname"
             android:layout_width="277dp"
             android:layout_height="43dp"
             android:layout_alignParentTop="true"
@@ -61,10 +61,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/dphone"
             android:layout_width="276dp"
             android:layout_height="38dp"
-            android:layout_below="@+id/textView8"
+            android:layout_below="@+id/dname"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="14dp"
@@ -78,10 +78,10 @@
             tools:layout_editor_absoluteY="470dp" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/daddress"
             android:layout_width="278dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/textView9"
+            android:layout_below="@+id/dphone"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="21dp"
@@ -92,10 +92,10 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/ddate"
             android:layout_width="283dp"
             android:layout_height="37dp"
-            android:layout_below="@+id/textView12"
+            android:layout_below="@+id/daddress"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="21dp"
@@ -106,24 +106,24 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/dtime"
             android:layout_width="287dp"
             android:layout_height="39dp"
-            android:layout_below="@+id/textView10"
+            android:layout_below="@+id/ddate"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="9dp"
             android:layout_marginRight="18dp"
-            android:text="5:20pm "
+            android:text="5:20 PM"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/ddeliverycharge"
             android:layout_width="277dp"
             android:layout_height="36dp"
-            android:layout_below="@+id/textView11"
+            android:layout_below="@+id/dtime"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="19dp"
@@ -149,7 +149,7 @@
         android:layout_toStartOf="@+id/button2"
         android:layout_toLeftOf="@+id/button2"
         android:text="@string/button"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ff9800"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         tools:layout_editor_absoluteX="24dp" />
@@ -165,7 +165,7 @@
         android:layout_toStartOf="@+id/button3"
         android:layout_toLeftOf="@+id/button3"
         android:text="@string/button2"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ff9800"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         tools:layout_editor_absoluteX="151dp" />
@@ -181,7 +181,7 @@
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
         android:text="@string/button3"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:backgroundTint="#ff9800"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         tools:layout_editor_absoluteX="278dp" />
