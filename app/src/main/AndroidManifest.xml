@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MadProject">
         <activity
+            android:name=".Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".user_profileedit"
             android:exported="true" />
         <activity
@@ -36,12 +39,6 @@
             android:exported="true" />
         <activity
             android:name=".UserProfile"
-            android:exported="true" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

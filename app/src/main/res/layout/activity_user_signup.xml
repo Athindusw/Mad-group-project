@@ -21,7 +21,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="-30dp"
         android:fontFamily="@font/bungee"
-        android:text="Welcome"
+        android:text="Welcome,"
         android:textSize="35sp" />
 
     <TextView
@@ -40,14 +40,15 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userName2"
+            android:id="@+id/name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/reg_Name"
+
+                android:id="@+id/reg_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -55,15 +56,16 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/name"
+            android:id="@+id/username"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="68dp"
-            android:hint="User Name"
+            android:hint="UserName"
             app:counterEnabled="true"
             app:counterMaxLength="15">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:id="@+id/reg_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,22 +84,22 @@
                 android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phonenumber"
+            android:id="@+id/phoneNo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number">
+            android:hint="Phone No">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/reg_phoneNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -110,10 +112,11 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:id="@+id/reg_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

@@ -15,7 +15,7 @@
         android:padding="20dp">
 
         <ImageView
-            android:id="@+id/profilepic"
+            android:id="@+id/profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_centerVertical="true"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/profilepic"
+            android:layout_toRightOf="@id/profile_image"
             android:fontFamily="@font/bungee"
             android:includeFontPadding="false"
             android:text="Athindu Weththasinghe"
@@ -39,9 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/full_name"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/profilepic"
+            android:layout_toRightOf="@id/profile_image"
             android:includeFontPadding="false"
-
             android:text="Athidu Weththasinghe" />
 
     </RelativeLayout>
@@ -94,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="10dp"
-                android:text="+97709118530"
-                android:layout_colour="white"/>
+                android:text="+97709118530"/>
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
