@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/app1/app/src/main/res/drawable/btn_bg.xml" value="0.22552083333333334" />
         <entry key="..\:/app1/app/src/main/res/drawable/input_bg.xml" value="0.22552083333333334" />
+        <entry key="..\:/app1/app/src/main/res/layout/activity_dashboard.xml" value="0.18" />
         <entry key="..\:/app1/app/src/main/res/layout/activity_feedback.xml" value="0.11" />
         <entry key="..\:/app1/app/src/main/res/layout/activity_feedbackedit.xml" value="0.22" />
         <entry key="..\:/app1/app/src/main/res/layout/activity_feedbackupdate.xml" value="0.18" />
@@ -17,7 +18,7 @@
         <entry key="..\:/app1/app/src/main/res/layout/activity_user_login2.xml" value="0.16" />
         <entry key="..\:/app1/app/src/main/res/layout/activity_user_profile.xml" value="0.22" />
         <entry key="..\:/app1/app/src/main/res/layout/activity_user_profileedit.xml" value="0.2" />
-        <entry key="..\:/app1/app/src/main/res/layout/activity_user_signup.xml" value="0.15" />
+        <entry key="..\:/app1/app/src/main/res/layout/activity_user_signup.xml" value="0.1822429906542056" />
         <entry key="..\:/app1/app/src/main/res/layout/new_activity.xml" value="0.1" />
         <entry key="..\:/app1/app/src/main/res/layout/newpage1.xml" value="0.16621376811594202" />
       </map>

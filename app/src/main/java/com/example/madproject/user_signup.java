@@ -18,14 +18,12 @@ import com.google.firebase.database.FirebaseDatabase;
 public class user_signup extends AppCompatActivity {
 
     //Variables
-    TextInputEditText regName, regUsername, regEmail, regPhoneNo, regPassword;
+    TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     Button regBtn, regToLoginBtn;
-    String name, username, email, phoneNO, password;
+    //String name, username, email, phoneNO, password;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
-
-
 
 
     @Override
@@ -47,28 +45,31 @@ public class user_signup extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name = regName.getText().toString();
-                username = regUsername.getText().toString();
-                email = regEmail.getText().toString();
-                phoneNO = regPhoneNo.getText().toString();
-                password = regPassword.getText().toString();
+//                name = regName.getEditText().getText().toString();
+//                username = regUsername.getEditText().getText().toString();
+//                email = regEmail.getEditText().getText().toString();
+//                phoneNO = regPhoneNo.getEditText().getText().toString();
+//                password = regPassword.getEditText().getText().toString();
 
                 rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("users");
+                reference = rootNode.getReference("Feedback");
 
-                ///Get all the values
-//                String name = regName.getEditableText().getText().toString();
-//                String username = regUsername.getEditableText().getText().toString();
-//                String email = regEmail.getEditableText().getText().toString();
-//                String phoneNO = regPhoneNo.getEditableText().getText().toString();
-//                String password = regPassword.getEditableText().getText().toString();
+                //reference.setValue("First data store in DB");
+
+                //Get all the values
+                String name = regName.getEditText().getText().toString();
+                String username = regUsername.getEditText().getText().toString();
+                String email = regEmail.getEditText().getText().toString();
+                String phoneNO = regPhoneNo.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString();
 
                 UserHelper helper = new UserHelper(name,username,email,phoneNO,password);
 
 //                Log.e("my tag","New data Inserted" +  regName.getText().toString() + regUsername.getText().toString());
 //                reference.setValue("New data inserted" +  regNameS + regUsernameS + regEmailS + regPhoneNoS + regPasswordS );
 
-                reference.child(phoneNO).setValue(helper);
+                reference.child(name).setValue(helper);
+                //reference.setValue(helper);
 
             }
         });

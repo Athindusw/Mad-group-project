@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/pic2" />
 
         <TextView
-            android:id="@+id/full_name"
+            android:id="@+id/fullname_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -34,13 +34,15 @@
 
         <TextView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/full_name"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/profile_image"
-            android:includeFontPadding="false"
+            android:id="@+id/username_field"
+            android:layout_width="204dp"
+            android:layout_height="51dp"
+            android:layout_below="@id/fullname_field"
+            android:layout_marginLeft="-203dp"
+            android:layout_marginTop="-4dp"
 
+            android:layout_toRightOf="@id/fullname_field"
+            android:includeFontPadding="false"
             android:text="Athidu Weththasinghe" />
 
     </RelativeLayout>
@@ -54,6 +56,7 @@
         android:padding="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/full_name_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -64,11 +67,12 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_person"
                 android:drawablePadding="1dp"
-                android:text="Athindu Weththasinghe" />
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -79,11 +83,12 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="10dp"
-                android:text="athindu.weththasinghe@gmail.com" />
+               />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_no_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -94,11 +99,12 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="10dp"
-                android:text="+97709118530" />
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -109,7 +115,8 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawablePadding="10dp"
-                android:text="abcd12123" />
+
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
