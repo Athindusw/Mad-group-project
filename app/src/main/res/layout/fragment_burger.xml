@@ -7,10 +7,41 @@
     tools:context=".FragmentBurger"
     android:background="#ffebcc">
 
+    <EditText
+        android:id="@+id/inputSearch"
+        android:layout_width="323dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Search here"
+        android:paddingLeft="20dp"
+        android:paddingTop="8dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="8dp" />
+
+
+    <ProgressBar
+        android:id="@+id/adminSpin"
+        android:layout_width="404dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:indeterminateTint="@color/button"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="393dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="52dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="654dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="67dp"
         android:layout_marginBottom="0dp"
         android:scrollbars="vertical" />
 
@@ -22,5 +53,15 @@
         android:layout_marginBottom="0dp"
         android:text="@string/btn_add"
         app:backgroundTint="@color/button" />
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/ic_search_black_24dp" />
 
 </RelativeLayout>

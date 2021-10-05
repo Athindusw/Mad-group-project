@@ -68,6 +68,13 @@ dependencies {
     implementation 'com.orhanobut:dialogplus:1.11@aar'
 
 
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    //spinner
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.tapadoo.android:alerter:2.0.4'
 
 }

@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.facebook.shimmer.Shimmer;
+import com.facebook.shimmer.ShimmerDrawable;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
@@ -51,7 +55,6 @@ public class RecyclerViewAdapter extends FirebaseRecyclerAdapter<Food,RecyclerVi
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position, Food model) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        //holder.img.setImageResource(Integer.parseInt(Food.getFoodImage()));
             holder.tv3.setText(model.getFoodCategory());
             holder.tv1.setText(model.getFoodName());
             holder.tv2.setText(model.getFoodPrice());
@@ -161,6 +164,7 @@ public class RecyclerViewAdapter extends FirebaseRecyclerAdapter<Food,RecyclerVi
 
             img_edit=itemView.findViewById(R.id.img_edit);
             img_delete=itemView.findViewById(R.id.img_delete);
+
         }
     }
 

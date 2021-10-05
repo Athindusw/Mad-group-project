@@ -46,16 +46,15 @@
 
 
     <Button
+        android:id="@+id/usubmit"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Update"
-        android:id="@+id/usubmit"
-        android:backgroundTint="@color/delete"
-        android:textColor="@color/black"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        />
+        android:backgroundTint="@color/delete"
+        android:text="Update"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
 </LinearLayout>
