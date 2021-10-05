@@ -1,9 +1,12 @@
 package com.example.madproject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -18,6 +21,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,26 +45,6 @@ public class delivary<spinner> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_delivary);
-
-       // dateformat = findViewById(R.id.dateformatId);
-       // Calendar calendar = Calendar.getInstance();
-        //dateformat.setOnClickListener(new View.OnClickListener() {
-           // @Override
-          //  public void onClick(View v) {
-            //    year = calendar.get(Calendar.YEAR);
-               // month = calendar.get(Calendar.MONTH);
-               // day = calendar.get(Calendar.DAY_OF_MONTH);
-               // DatePickerDialog datePickerDialog = new DatePickerDialog(delivary.this, new DatePickerDialog.OnDateSetListener() {
-                  //  @Override
-                  //  public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                      //  dateformat.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
-
-                 //   }
-               // }, year,month, day);
-               // datePickerDialog.show();
-           // }
-
-
 
 
         Name1 = findViewById(R.id.Name1);
@@ -112,24 +96,52 @@ public class delivary<spinner> extends AppCompatActivity {
         submit1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bsave1();
+
+                String Name = Name1.getText().toString();
+                String Mobile = Mobile1.getText().toString();
+                String Address = Address1.getText().toString();
+                String Distance = spinner.getSelectedItem().toString();
+                String Date = dateTextView.getText().toString();
+                String Time = timeTextView.getText().toString();
+
+                if (Name.isEmpty() || Mobile.isEmpty() || Address.isEmpty() || Distance.isEmpty() || Date.isEmpty() || Time.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please complete the field", Toast.LENGTH_SHORT).show();
+                }else if(!Mobile1.getText().toString().trim().matches("^[0-9]{10}$")){
+                    Toast.makeText(getApplicationContext(), "Invalid Phone number", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    String userid=db1.push().getKey();
+                    dlvry dlvry1 = new dlvry();
+                    dlvry1.setName(Name);
+                    dlvry1.setMobile(Mobile);
+                    dlvry1.setAddress(Address);
+                    dlvry1.setDistance(Distance);
+                    dlvry1.setDate(Date);
+                    dlvry1.setTime(Time);
+
+
+                    db1.child(userid).setValue(dlvry1,new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                            if (error == null){
+                                Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(delivary.this,DisplayDelivaryDetails.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Some issues are there", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                }
             }
         });
     }
 
-    private void bsave1(){
-        String Name = Name1.getText().toString();
-      //  Integer Mobile = Integer.parseInt(Mobile1.getText().toString());
-        String Mobile = Mobile1.getText().toString();
-        String Address = Address1.getText().toString();
-        String Distance = spinner.getSelectedItem().toString();
-        String Date = dateTextView.getText().toString();
-        String Time = timeTextView.getText().toString();
 
-        dlvry dlvry1 = new dlvry(Name, Mobile, Address, Distance, Date, Time);
-        db1.push().setValue(dlvry1);
-        Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
-    }
 
 
     private void handleTimeButton() {
@@ -142,9 +154,6 @@ public class delivary<spinner> extends AppCompatActivity {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hour, int minute) {
-                //String timeString = "hour: " + hour + " minute: " + minute;
-                //timeTextView.setText(timeString);
-
 
                 Calendar calendar1 = Calendar.getInstance();
                 calendar1.set(Calendar.HOUR, hour);

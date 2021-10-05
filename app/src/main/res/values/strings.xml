@@ -14,5 +14,6 @@
         <item> 2km </item>
         <item> 5km </item>
         <item> 10km </item>
+        <item> more than 10km </item>
     </string-array>
 </resources>

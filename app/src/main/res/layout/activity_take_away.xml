@@ -97,15 +97,15 @@
 
     <TextView
         android:id="@+id/dateTextView1"
-        android:layout_width="244dp"
-        android:layout_height="48dp"
+        android:layout_width="221dp"
+        android:layout_height="52dp"
         android:layout_below="@+id/tmobile"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
-        android:hint="                   Date" />
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:hint=" Date" />
 
     <Button
         android:id="@+id/timeButton1"
@@ -122,15 +122,15 @@
 
     <TextView
         android:id="@+id/timeTextView1"
-        android:layout_width="242dp"
-        android:layout_height="47dp"
+        android:layout_width="202dp"
+        android:layout_height="46dp"
         android:layout_below="@+id/dateTextView1"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
-        android:hint="                  Time" />
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:hint="Time" />
 
 
 </RelativeLayout>

@@ -9,11 +9,11 @@
     tools:context=".DisplayTakeAwayDetails">
 
 
-    <!--    <RelativeLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="120dp"-->
-    <!--        android:background="#fece2f"-->
-    <!--        android:padding="10dp">-->
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            android:background="#fece2f"-->
+<!--            android:padding="10dp">-->
 
 
     <TextView
@@ -24,8 +24,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
         android:fontFamily="@font/bungee"
         android:text="           Take Away Details"
         android:textSize="20sp" />
@@ -36,128 +36,128 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="107dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
+        android:layout_marginTop="105dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
         android:background="#ffcc80"
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/txt1"
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
+            android:id="@+id/twname"
+            android:layout_width="240dp"
+            android:layout_height="35dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="39dp"
-            android:layout_marginEnd="33dp"
-            android:layout_marginRight="33dp"
-            android:fontFamily="@font/abril_fatface"
-            android:text="Kamal"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="53dp" />
+            android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/txt2"
-            android:layout_width="258dp"
-            android:layout_height="43dp"
-            android:layout_below="@+id/txt1"
+            android:id="@+id/twmobile"
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/twname"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="21dp"
-            android:fontFamily="@font/abril_fatface"
-            android:text="0123456789"
-            android:textSize="20sp" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/txt3"
-            android:layout_width="261dp"
-            android:layout_height="42dp"
-            android:layout_below="@+id/txt2"
+            android:id="@+id/twdate"
+            android:layout_width="240dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/twmobile"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/abril_fatface"
-            android:text="Sep 1, 2021"
-            android:textSize="20sp" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/txt4"
-            android:layout_width="263dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/txt3"
+            android:id="@+id/twtime"
+            android:layout_width="240dp"
+            android:layout_height="39dp"
+            android:layout_below="@+id/twdate"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/abril_fatface"
-            android:text="10: 45  PM"
-            android:textSize="20sp" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_marginBottom="182dp"
-        android:background="#fece2f"
-        android:text="Conform"
-        android:textColor="@color/white"
-        app:backgroundTint="#ff9800" />
-
-    <Button
-        android:id="@+id/tDltbtn"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-
-
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        android:layout_marginBottom="184dp"
-        android:layout_toStartOf="@+id/button8"
-        android:layout_toLeftOf="@+id/button8"
-        android:layout_toEndOf="@+id/button11"
-        android:layout_toRightOf="@+id/button11"
-        android:background="#fece2f"
-        android:text="Delete"
-        app:backgroundTint="#ff9800" />
-
-    <Button
-        android:id="@+id/button11"
+        android:id="@+id/etEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginBottom="182dp"
-        android:background="#fece2f"
-        android:text="Edit"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="170dp"
+        android:layout_toStartOf="@+id/etDelete"
+        android:layout_toLeftOf="@+id/etDelete"
+        android:text="edit"
+        app:backgroundTint="#ff9800" />
+
+    <Button
+        android:id="@+id/etDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="170dp"
+        android:layout_toStartOf="@+id/etconform"
+        android:layout_toLeftOf="@+id/etconform"
+        android:text="delete"
+        app:backgroundTint="#ff9800" />
+
+    <Button
+        android:id="@+id/etconform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="170dp"
+
+        android:text="conform"
         app:backgroundTint="#ff9800" />
 
 

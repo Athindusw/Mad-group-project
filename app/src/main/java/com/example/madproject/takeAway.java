@@ -1,5 +1,7 @@
 package com.example.madproject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,9 +42,8 @@ public class takeAway extends AppCompatActivity {
    private TextView dateTextView1, timeTextView1;
    private EditText tname,tmobile;
 
-//    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-//    private DatabaseReference root = db.getReference().child("TakeAway");
 
+FirebaseDatabase mDatabase;
     DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,32 +59,6 @@ public class takeAway extends AppCompatActivity {
         dateTextView1 = findViewById(R.id.dateTextView1);
         timeTextView1 = findViewById(R.id.timeTextView1);
 
-//        tbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String Name = tname.getText().toString();
-//                String Mobile = tmobile.getText().toString();
-//                String Date = dateTextView1.getText().toString();
-//                String Time = timeTextView1.getText().toString();
-//
-//                HashMap<String, String> userMap = new HashMap<>();
-//
-//                userMap.put("Name" , Name);
-//                userMap.put("Mobile" , Mobile);
-//                userMap.put("Date" , Date);
-//                userMap.put("Time" , Time);
-//
-//                root.push().setValue(userMap);
-//
-//
-//
-//            }
-//        });
-
-
-
-
-
 
         dateButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,33 +73,58 @@ public class takeAway extends AppCompatActivity {
             }
         });
 
-        db = FirebaseDatabase.getInstance().getReference().child("TakeAway");
+
+        mDatabase=FirebaseDatabase.getInstance();
+        db=mDatabase.getReference().child("TakeAway");
         Subbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bsave();
+
+
+
+
+                String Name = tname.getText().toString();
+
+                String Mobile = tmobile.getText().toString();
+                String Date = dateTextView1.getText().toString();
+                String Time = timeTextView1.getText().toString();
+
+                if (Name.isEmpty() || Mobile.isEmpty() || Date.isEmpty() || Time.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please complete the field", Toast.LENGTH_SHORT).show();
+                }else if(!tmobile.getText().toString().trim().matches("^[0-9]{10}$")){
+                    Toast.makeText(getApplicationContext(), "Invalid Phone number", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    String userid=db.push().getKey();
+                    tkAway tAway = new tkAway();
+                    tAway.setName(Name);
+                    tAway.setMobile(Mobile);
+                    tAway.setDate(Date);
+                    tAway.setTime(Time);
+
+
+                    db.child(userid).setValue(tAway,new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                            if (error == null){
+                                Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(takeAway.this,DisplayTakeAwayDetails.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Some issues are there", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                }
+
+
             }
         });
     }
-
-
-
-    private void bsave(){
-        String Name = tname.getText().toString();
-             //Integer Mobile = Integer.parseInt(tmobile.getText().toString());
-        String Mobile = tmobile.getText().toString();
-             String Date = dateTextView1.getText().toString();
-             String Time = timeTextView1.getText().toString();
-
-             tkAway tAway = new tkAway(Name, Mobile, Date, Time);
-             db.push().setValue(tAway);
-        Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(takeAway.this,DisplayTakeAwayDetails.class);
-        startActivity(intent);
-    }
-
-
-
 
     private void handleTimeButton() {
         Calendar calendar = Calendar.getInstance();
@@ -135,9 +136,7 @@ public class takeAway extends AppCompatActivity {
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hour, int minute) {
-                //String timeString = "hour: " + hour + " minute: " + minute;
-                //timeTextView.setText(timeString);
-
+              
 
                 Calendar calendar1 = Calendar.getInstance();
                 calendar1.set(Calendar.HOUR, hour);

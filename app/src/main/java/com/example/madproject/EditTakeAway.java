@@ -10,12 +10,9 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -25,94 +22,67 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.MissingResourceException;
 
-public class editDelivary extends AppCompatActivity {
+public class EditTakeAway extends AppCompatActivity {
     EditText dateformat;
     int year;
     int month;
     int day;
-    Spinner edspinner;
-    ArrayAdapter<CharSequence> adapter;
-    private EditText edName,edPhone,edAddress;
-    private TextView edDateTextView,edTimeView;
-    private Button dtebutton,tmebutton;
-    private Button sveChnge1;
+    private EditText etName,etPhone;
+    private TextView textDateView,textTimeView;
+    private Button dtebtn1,tmebtn1;
+    private Button svechng;
     DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_edit_delivary);
+        setContentView(R.layout.activity_edit_take_away);
 
-        dlvry dlvry1= (dlvry) getIntent().getSerializableExtra("id");
-        db = FirebaseDatabase.getInstance().getReference().child("Delivery");
+        tkAway tAway= (tkAway) getIntent().getSerializableExtra("id");
+        db = FirebaseDatabase.getInstance().getReference().child("TakeAway");
 
-        edName =findViewById(R.id.edName);
-        edPhone =findViewById(R.id.edPhone);
-        edAddress =findViewById(R.id.edAddress);
-        edDateTextView = findViewById(R.id.edDateTextView);
-        edTimeView = findViewById(R.id.edTimeView);
-        dtebutton = findViewById(R.id.dtebutton);
-        tmebutton = findViewById(R.id.tmebutton);
-        sveChnge1= findViewById(R.id.sveChnge1);
+        etName =findViewById(R.id.etName);
+        etPhone =findViewById(R.id.etPhone);
+        textDateView =findViewById(R.id.textDateView);
+        textTimeView =findViewById(R.id.textTimeView);
+        dtebtn1 =findViewById(R.id.dtebtn1);
+        tmebtn1 =findViewById(R.id.tmebtn1);
+        svechng =findViewById(R.id.svechng);
 
-        edspinner = (Spinner) findViewById(R.id.edspinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.names, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        edspinner.setAdapter(adapter);
-
+        etName.setText(tAway.getName());
+        etPhone.setText(tAway.getMobile());
+        textDateView.setText(tAway.getDate());
+        textTimeView.setText(tAway.getTime());
 
 
-        edspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(getBaseContext(), parent.getItemAtPosition(position) + " Selected", Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-
-
-            });
-
-        edName.setText(dlvry1.getName());
-        edPhone.setText(dlvry1.getMobile());
-        edAddress.setText(dlvry1.getAddress());
-        edDateTextView.setText(dlvry1.getDate());
-        edTimeView.setText(dlvry1.getTime());
-
-
-                sveChnge1.setOnClickListener(new View.OnClickListener() {
+        svechng.setOnClickListener(new View.OnClickListener() {
             private Object position;
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(EditTakeAway.this,DisplayTakeAwayDetails.class);
+                startActivity(intent);
                 Map<String,Object> map=new HashMap<>();
-                map.put("name",edName.getText().toString());
-                map.put("mobile",edPhone.getText().toString());
-                map.put("address",edAddress.getText().toString());
-                map.put("date",edDateTextView.getText().toString());
-                map.put("time",edTimeView.getText().toString());
+                map.put("name",etName.getText().toString());
+                map.put("mobile",etPhone.getText().toString());
+                map.put("date",textDateView.getText().toString());
+                map.put("time",textTimeView.getText().toString());
 
 
-                FirebaseDatabase.getInstance().getReference().child("Delivery").child(dlvry1.getId()).updateChildren(map)
+                FirebaseDatabase.getInstance().getReference().child("TakeAway").child(tAway.getId()).updateChildren(map)
 
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 
                                 Toast.makeText(v.getContext(), "Successfully updated", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(editDelivary.this,DisplayDelivaryDetails.class);
-                                startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -129,26 +99,19 @@ public class editDelivary extends AppCompatActivity {
             }
         });
 
-
-        dtebutton.setOnClickListener(new View.OnClickListener() {
+        dtebtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleDateButton();
             }
         });
-        tmebutton.setOnClickListener(new View.OnClickListener() {
+        tmebtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleTimeButton();
             }
         });
-
-
-
     }
-
-
-
     private void handleTimeButton() {
         Calendar calendar = Calendar.getInstance();
         int HOUR = calendar.get(Calendar.HOUR);
@@ -161,13 +124,12 @@ public class editDelivary extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hour, int minute) {
 
 
-
                 Calendar calendar1 = Calendar.getInstance();
                 calendar1.set(Calendar.HOUR, hour);
                 calendar1.set(Calendar.MINUTE, minute);
 
                 CharSequence charSequence = DateFormat.format("hh:mm a", calendar1);
-                edTimeView.setText(charSequence);
+                textTimeView.setText(charSequence);
             }
         }, HOUR, MINUTE, is24HourFormat);
         timePickerDialog.show();
@@ -183,7 +145,7 @@ public class editDelivary extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int date) {
                 String dateString= year + " " + month + " " + date;
-                edDateTextView.setText(dateString);
+                textDateView.setText(dateString);
 
                 Calendar calendar1 = Calendar.getInstance();
                 calendar1.set(Calendar.YEAR, year);
@@ -191,7 +153,7 @@ public class editDelivary extends AppCompatActivity {
                 calendar1.set(Calendar.DATE, date);
 
                 CharSequence dateCharSequence = DateFormat.format("MMM d, yyyy", calendar1);
-                edDateTextView.setText(dateCharSequence);
+                textDateView.setText(dateCharSequence);
             }
         }, YEAR, MONTH, DATE);
         datePickerDialog.show();

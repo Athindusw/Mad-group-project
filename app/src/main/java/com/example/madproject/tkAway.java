@@ -1,8 +1,13 @@
 package com.example.madproject;
 
 
-public class tkAway {
+import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
+
+public class tkAway implements Serializable {
+        @Exclude
+        String id;
         String name;
         String mobile;
         String date;
@@ -17,6 +22,14 @@ public class tkAway {
         this.mobile = mobile;
         this.date = date;
         this.time = time;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,6 +49,7 @@ public class tkAway {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 

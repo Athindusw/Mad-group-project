@@ -38,8 +38,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nimal" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edPhone"
@@ -52,8 +51,7 @@
         android:layout_marginEnd="17dp"
         android:layout_marginRight="17dp"
         android:ems="10"
-        android:inputType="phone"
-        android:text="071234567" />
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/edAddress"
@@ -66,8 +64,7 @@
         android:layout_marginEnd="19dp"
         android:layout_marginRight="19dp"
         android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="No/5,nupe,matara" />
+        android:inputType="textPostalAddress" />
 
     <TextView
         android:id="@+id/textView22"
@@ -133,8 +130,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="54dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:text="Aug 13,2021" />
+        android:layout_marginRight="38dp" />
 
     <TextView
         android:id="@+id/edTimeView"
@@ -145,8 +141,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:text="5:20pm" />
+        android:layout_marginRight="38dp" />
 
     <Button
         android:id="@+id/sveChnge1"
