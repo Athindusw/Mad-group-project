@@ -7,6 +7,19 @@
     tools:context=".FragmentP"
     android:background="#ffebcc">
 
+    <ProgressBar
+        android:id="@+id/adminSpin"
+        android:layout_width="404dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:indeterminateTint="@color/Orange"
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="393dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="52dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recview"
         android:layout_width="match_parent"

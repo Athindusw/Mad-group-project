@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,8 @@ public class FragmentP extends Fragment {
     private String mParam2;
     RecyclerView recview;
     RecyclerViewAdapter adapter;
+    ProgressBar progressBar;
+
     public FragmentP() {
 
     }
@@ -58,6 +61,7 @@ public class FragmentP extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_p, container, false);
+        progressBar = view.findViewById(R.id.adminSpin);
         recview = view.findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseRecyclerOptions<Food> options =
@@ -83,11 +87,13 @@ public class FragmentP extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        progressBar.setVisibility(View.VISIBLE);
         adapter.startListening();
     }
 
     public void onStop(){
         super.onStop();
+        progressBar.setVisibility(View.GONE);
         adapter.stopListening();
     }
 

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.madproject"
-        minSdk 16
+        minSdk 21
         targetSdk 30
         versionCode 1
         versionName "1.0"
@@ -45,6 +45,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.firebaseui:firebase-ui-database:8.0.0'
+    implementation 'com.tapadoo.android:alerter:2.0.4'
+}
 
 
 
@@ -52,4 +54,3 @@ dependencies {
 
     
 
-}

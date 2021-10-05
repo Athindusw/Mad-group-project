@@ -62,7 +62,8 @@ public class RecyclerViewAdapter extends FirebaseRecyclerAdapter<Food,RecyclerVi
                 ref.child(ref.push().getKey()).setValue(parameters);
                 Toast.makeText(v.getContext(), "Added to the Cart", Toast.LENGTH_SHORT).show();
                 holder.btn_add_cart.setEnabled(false);
-                //Toast.makeText(v.getContext(), "Product already added to the cart", Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
@@ -84,6 +85,7 @@ public class RecyclerViewAdapter extends FirebaseRecyclerAdapter<Food,RecyclerVi
             btn_add_cart = itemView.findViewById(R.id.btn_add_cart);
         }
     }
+
 
 
 

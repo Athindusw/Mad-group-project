@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +27,6 @@ public class ProductCart extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     RecyclerCartAdapter recyclerCartAdapter;
-    ArrayList<OrderDetails> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,39 +39,31 @@ public class ProductCart extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        list = new ArrayList<>();
-        recyclerCartAdapter = new RecyclerCartAdapter(this,list);
+
+
+        FirebaseRecyclerOptions<OrderDetails> options = new FirebaseRecyclerOptions.Builder<OrderDetails>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("OrderDetails"), OrderDetails.class)
+                .build();
+
+        recyclerCartAdapter = new RecyclerCartAdapter(options);
+
         recyclerView.setAdapter(recyclerCartAdapter);
 
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-
-                    OrderDetails orderdetails = dataSnapshot.getValue(OrderDetails.class);
-                    list.add(orderdetails);
-
-
-                }
-                recyclerCartAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+        TextView subtot = (TextView)findViewById(R.id.tv_subtot);
         Button btn_cartsubmit = (Button)findViewById(R.id.btn_cartsubmit);
 
         btn_cartsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                subtot.setText("Rs." + recyclerCartAdapter.getTotal() + "0/=");
                 startActivity(new Intent(ProductCart.this, FinalInvoice.class));
+
+                Intent intent = new Intent(ProductCart.this,FinalInvoice.class);
+                intent.putExtra("key",recyclerCartAdapter.getTotal());
+                startActivity(intent);
             }
         });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -79,8 +72,24 @@ public class ProductCart extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             if(bundle.getString("some") != null){
-                //Toast.makeText(getApplicationContext(), "Here " + bundle.getString("some"), Toast.LENGTH_SHORT).show();
+
             }
         }
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recyclerCartAdapter.startListening();
+    }
+
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        recyclerCartAdapter.stopListening();
     }
 }
