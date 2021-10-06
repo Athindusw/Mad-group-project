@@ -1,29 +1,48 @@
 package com.example.madproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-//import android.view.WindowManager;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class user_signup extends AppCompatActivity {
 
+    public static final String TAG = "TAG";
     //Variables
     TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     Button regBtn, regToLoginBtn;
-    //String name, username, email, phoneNO, password;
+    ProgressBar mprogressBar;
+    String userID;
 
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
+
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -41,139 +60,83 @@ public class user_signup extends AppCompatActivity {
         regBtn = findViewById(R.id.reg_btn);
         regToLoginBtn = findViewById(R.id.reg_login_btn);
 
+        mprogressBar = findViewById(R.id.reg_progressBar);
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                name = regName.getEditText().getText().toString();
-//                username = regUsername.getEditText().getText().toString();
-//                email = regEmail.getEditText().getText().toString();
-//                phoneNO = regPhoneNo.getEditText().getText().toString();
-//                password = regPassword.getEditText().getText().toString();
 
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("Feedback");
-
-                //reference.setValue("First data store in DB");
+                fAuth = FirebaseAuth.getInstance();
+                fStore = FirebaseFirestore.getInstance();
 
                 //Get all the values
                 String name = regName.getEditText().getText().toString();
                 String username = regUsername.getEditText().getText().toString();
-                String email = regEmail.getEditText().getText().toString();
+                String email = regEmail.getEditText().getText().toString().trim();
                 String phoneNO = regPhoneNo.getEditText().getText().toString();
-                String password = regPassword.getEditText().getText().toString();
+                String password = regPassword.getEditText().getText().toString().trim();
 
-                UserHelper helper = new UserHelper(name,username,email,phoneNO,password);
+                if (TextUtils.isEmpty(email)){
+                    regEmail.setError("Email is required !");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)){
+                    regPassword.setError("Password is required !");
+                    return;
+                }
+                if (password.length()<6){
+                    regPassword.setError("Password must 6 characters");
+                    return;
+                }
+                mprogressBar.setVisibility(View.VISIBLE);
 
-//                Log.e("my tag","New data Inserted" +  regName.getText().toString() + regUsername.getText().toString());
-//                reference.setValue("New data inserted" +  regNameS + regUsernameS + regEmailS + regPhoneNoS + regPasswordS );
+                //register the user to firebase
+                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(user_signup.this, "User created", Toast.LENGTH_SHORT).show();
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("fname",name);
+                            user.put("email",email);
+                            user.put("phoneno",phoneNO);
+                            user.put("uname",username);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "onSuccess: user Profile is created for "+ userID);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailure: " + e.toString());
+                                }
+                            });
+                            startActivity(new Intent(getApplicationContext(),user_profileedit.class));
 
-                reference.child(name).setValue(helper);
-                //reference.setValue(helper);
+                        }else {
+                            Toast.makeText(user_signup.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            mprogressBar.setVisibility(View.GONE);
+                        }
+
+                    }
+                });
+
+            }
+        });
+
+        regToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Dashboard.class));
 
             }
         });
 
     }
 
-//    private Boolean validateName(){
-//        String val = regName.getEditText().getText().toString();
-//
-//        if(val.isEmpty()) {
-//            regName.setError("Field cannot be empty");
-//            return false;
-//        }
-//        else{
-//            regName.setError(null);
-//             regName.setErrorEnabled(false);
-//            return true;
-//        }
-//    };
-
-//
-//
-//    private Boolean validateUsername(){
-//        String val = regName.getEditText().getText().toString();
-//        String noWhiteSpace = "(?=\\s+$)";
-//
-//        if(val.isEmpty()) {
-//            regName.setError("Field cannot be empty");
-//            return false;
-//        }
-//        else if  (val.length()>=15){
-//            regName.setError("username too long");
-//            return false;
-//        }
-//        else if (!val.matches(noWhiteSpace)){
-//            regName.setError("White Spaces not Allowed");
-//            return false;
-//
-//        }
-//        else{
-//            regName.setError(null);
-//            return true;
-//        }
-//    };
-//
-//    private Boolean validateEmail(){
-//        String val = regName.getEditText().getText().toString();
-//        String emailPattern = "[a-zA-Z0-9._-] +@ [a-z]+\\.+[a-z]+";
-//
-//        if(val.isEmpty()) {
-//            regName.setError("Field cannot be empty");
-//            return false;
-//        }
-//        else if(!val.matches(emailPattern)) {
-//            regName.setError("Invalid email address");
-//            return false;
-//        }
-//        else{
-//            regName.setError(null);
-//            return true;
-//        }
-//    };
-//
-//    private Boolean validatePhoneNo(){
-//        String val = regName.getEditText().getText().toString();
-//
-//        if(val.isEmpty()) {
-//            regName.setError("Field cannot be empty");
-//            return false;
-//        }
-//        else{
-//            regName.setError(null);
-//            return true;
-//        }
-//    };
-//
-//    private Boolean validatePassword(){
-//        String val = regName.getEditText().getText().toString();
-//
-//        if(val.isEmpty()) {
-//            regName.setError("Field cannot be empty");
-//            return false;
-//        }
-//        else{
-//            regName.setError(null);
-//            return true;
-//        }
-//    };
-
-
-//    public void registerUser(View view) {
-//
-//        if(!validateName() | !validatePassword() | !validatePhone() | !validateEmail() | !validateUsername()) {
-//            return;
-//        }
-//
-//         name = regName.getEditText().getText().toString();
-//          username =regUsername.getEditText().getText().toString();
-//         email =regEmail.getEditText().getText().toString();
-//         phoneNo = regPhoneNo.getEditText().getText().toString();
-//         password =regPassword.getEditText().getText().toString();
-//
-//
-//        UserHelper helper = new UserHelper(name,username,email,phoneNO,password);
-//        reference.child(username).setValue(helper);
-//    }
 }

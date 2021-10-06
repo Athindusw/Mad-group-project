@@ -7,9 +7,12 @@ import android.view.WindowManager;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class feedbackedit extends AppCompatActivity {
 
-    TextView Feedback;
+    TextInputLayout fName, fEmail;
+    TextView fComment;
 
 
     @Override

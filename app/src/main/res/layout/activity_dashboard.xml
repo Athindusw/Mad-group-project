@@ -7,6 +7,7 @@
     android:background="@color/Backcolour"
     android:orientation="vertical"
     android:padding="20dp"
+    android:visibility="visible"
     tools:context=".Dashboard">
 
 
@@ -43,12 +44,12 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username"
+            android:id="@+id/email12"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:hint="Email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -58,14 +59,14 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/password"
+            android:id="@+id/password12"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:hint="Password"
             app:counterEnabled="true"
-            app:passwordToggleEnabled="true"
-            app:counterMaxLength="15">
+            app:counterMaxLength="15"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -100,6 +101,14 @@
         android:text="new user? sign up"
         android:textColor="@color/black"
         app:backgroundTint="@color/white" />
+
+    <ProgressBar
+        android:id="@+id/reg_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="45dp"
+        android:visibility="invisible" />
 
 
 </LinearLayout>

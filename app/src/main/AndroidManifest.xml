@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.madproject">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -18,10 +19,10 @@
         <activity
             android:name=".user_login"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.user_login"
-            android:exported="true"
-            android:label="@string/title_activity_user_login" />
+<!--        <activity-->
+<!--            android:name=".ui.login.user_login"-->
+<!--            android:exported="true"-->
+<!--            android:label="@string/title_activity_user_login" />-->
         <activity
             android:name=".user_signup"
             android:exported="true" />
@@ -38,7 +39,7 @@
             android:name=".feedback"
             android:exported="true" />
         <activity
-            android:name=".UserProfile"
+            android:name=".ProfileDelete"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

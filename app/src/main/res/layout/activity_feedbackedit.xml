@@ -30,7 +30,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userName2"
+        android:id="@+id/Fname"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password2"
+        android:id="@+id/Femail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/Fcomment"
         android:layout_width="375dp"
         android:layout_height="114dp"
 
@@ -107,7 +107,7 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/btnSend"
+        android:id="@+id/Fsend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
